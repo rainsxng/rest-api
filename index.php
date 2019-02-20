@@ -9,7 +9,14 @@
 </head>
 <body>
 <?php
+require_once 'classes\UserApi.php';
 
+try {
+    $api = new UserApi();
+    echo $api->run();
+} catch (Exception $e) {
+    echo json_encode(Array('error' => $e->getMessage()));
+}
 ?>
 </body>
 </html>
